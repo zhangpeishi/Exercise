@@ -11,10 +11,13 @@ public class TCPClient {
 
         OutputStream os = socket.getOutputStream();
 
-        os.write("你好".getBytes());
-        InputStream is= socket.getInputStream();
-        Bytes[] bytes = new Bytes[1024];
-        System.out.println();
+        os.write("你好，服务器".getBytes());
+        byte [] bytes = new byte[1024];
+        InputStream is = socket.getInputStream();
+        int len = is.read(bytes);
+        System.out.println(new String(bytes,0,len));
+        socket.close();
+
     }
 }
 

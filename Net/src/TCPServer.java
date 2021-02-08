@@ -11,9 +11,15 @@ public class TCPServer {
         ServerSocket ss = new ServerSocket(8888);
 
         Socket sc = ss.accept();
+
         InputStream is = sc.getInputStream();
 
-        System.out.println(is.read());
+        byte[] bytes = new byte[1024];
+
+        int len = is.read(bytes);
+
+        System.out.println(new String(bytes,0,len));
+
         OutputStream os = sc.getOutputStream();
 
         os.write("收到谢谢".getBytes());
