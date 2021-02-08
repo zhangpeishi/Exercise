@@ -65,18 +65,20 @@ public class Main01 {
                 new Message(3, "去哪吃饭？"),
                 new Message(4, "Bye")
         );
-        ArrayList<Message> arr = new ArrayList<>(received);
-        ArrayList<Message> displayMessages = process(arr);
+        ArrayList<Message> displayMessages = process(received);
         for (Message message : displayMessages) {
             System.out.println(message.text);
         }
+
+
     }
 
-    static ArrayList<Message> process (ArrayList < Message > arr) {
+    static ArrayList<Message> process (List < Message > received) {
 
         // TODO: 按sequence去除重复消息
 
         //int[] a = new int[7];
+        ArrayList<Message> arr = new ArrayList<>(received);
         for (int i = 0; i < arr.size()-1; i++) {
             if(arr.get(i).equals(arr.get(i+1))){
                 arr.remove(i);
@@ -87,6 +89,7 @@ public class Main01 {
 //                arr.remove(i);
 //            }
 //        }
+
 
         return arr;
     }
@@ -110,5 +113,6 @@ class Message {
         }
         return false;
     }
+
 }
 
